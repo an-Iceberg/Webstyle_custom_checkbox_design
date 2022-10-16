@@ -1,0 +1,92 @@
+@mixin flex($direction: column, $justify: center, $align: center, $gap: 30px, $wrap: wrap) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+  gap: $gap;
+  flex-wrap: $wrap;
+}
+
+*, *::after, *::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font: 1rem "Veranda", sans-serif;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  @include flex();
+  background-color: rgb(16%, 16%, 16%);
+
+  input {
+
+    &[type="checkbox"] {
+      position: relative;
+      width: 120px;
+      height: 40px;
+      cursor: pointer;
+      appearance: none;
+      background-image: linear-gradient(to top, rgb(20%, 20%, 20%), rgb(0%, 0%, 0%));
+      border-radius: 20px;
+      box-shadow:
+        0 0 0 4px rgb(21%, 21%, 21%),
+        0 0 0 5px rgb(24%, 24%, 24%),
+        inset 0 0 10px rgb(0%, 0%, 0%, 100%),
+        inset 0 5px 20px rgb(0%, 0%, 0%, 50%),
+        inset 0 0 15px rgb(0%, 0%, 0%, 20%);
+      /* overflow: hidden; */
+
+      &::before, &::after {
+        content: '';
+        position: absolute;
+        transition: all .3s;
+      }
+
+      &::before {
+        top: 0;
+        left: 0;
+        width: 80px;
+        height: 40px;
+        background-image: linear-gradient(to top, rgb(0%, 0%, 0%), rgb(42%, 42%, 42%));
+        border-radius: inherit;
+        box-shadow: 0 0 0 1px rgb(14%, 14%, 14%);
+        transform: scale(98%, 96%);
+      }
+
+      &::after {
+        top: calc(50% - 2px);
+        left: 60px;
+        width: 4px;
+        height: 4px;
+        background-image: linear-gradient(to top, rgb(42%, 42%, 42%), rgb(0%, 0%, 0%));
+        border-radius: 50%;
+      }
+    }
+
+    &:checked[type="checkbox"] {
+      background-image: linear-gradient(to top, rgb(43%,82%,100%), rgb(13%,72%,100%));
+      box-shadow:
+        /* 0 0 2px rgb(43%,82%,100%), */
+        0 0 0 4px rgb(21%, 21%, 21%),
+        0 0 0 5px rgb(24%, 24%, 24%),
+        inset 0 0 10px rgb(0%, 0%, 0%, 100%),
+        inset 0 5px 20px rgb(0%, 0%, 0%, 50%),
+        inset 0 0 15px rgb(0%, 0%, 0%, 20%);
+
+      &::before {
+        left: 40px;
+        transition: all .3s;
+      }
+
+      &::after {
+        background-image: linear-gradient(rgb(39%,80%,100%), rgb(39%,80%,100%));
+        box-shadow:
+          0 0 5px rgb(7%,70%,100%),
+          0 0 15px rgb(7%,70%,100%);
+        left: 100px;
+      }
+    }
+  }
+}

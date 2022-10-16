@@ -1,0 +1,67 @@
+*, *::after, *::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font: 1rem "Veranda", sans-serif;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  background-color: rgb(41, 41, 41);
+}
+body input[type=checkbox] {
+  position: relative;
+  width: 120px;
+  height: 40px;
+  cursor: pointer;
+  appearance: none;
+  background-image: linear-gradient(to top, rgb(51, 51, 51), rgb(0, 0, 0));
+  border-radius: 20px;
+  box-shadow: 0 0 0 4px rgb(54, 54, 54), 0 0 0 5px rgb(61, 61, 61), inset 0 0 10px rgb(0, 0, 0), inset 0 5px 20px rgba(0, 0, 0, 0.5), inset 0 0 15px rgba(0, 0, 0, 0.2);
+  /* overflow: hidden; */
+}
+body input[type=checkbox]::before, body input[type=checkbox]::after {
+  content: "";
+  position: absolute;
+  transition: all 0.3s;
+}
+body input[type=checkbox]::before {
+  top: 0;
+  left: 0;
+  width: 80px;
+  height: 40px;
+  background-image: linear-gradient(to top, rgb(0, 0, 0), rgb(107, 107, 107));
+  border-radius: inherit;
+  box-shadow: 0 0 0 1px rgb(36, 36, 36);
+  transform: scale(98%, 96%);
+}
+body input[type=checkbox]::after {
+  top: calc(50% - 2px);
+  left: 60px;
+  width: 4px;
+  height: 4px;
+  background-image: linear-gradient(to top, rgb(107, 107, 107), rgb(0, 0, 0));
+  border-radius: 50%;
+}
+body input:checked[type=checkbox] {
+  background-image: linear-gradient(to top, rgb(110, 209, 255), rgb(33, 184, 255));
+  box-shadow: 0 0 0 4px rgb(54, 54, 54), 0 0 0 5px rgb(61, 61, 61), inset 0 0 10px rgb(0, 0, 0), inset 0 5px 20px rgba(0, 0, 0, 0.5), inset 0 0 15px rgba(0, 0, 0, 0.2);
+}
+body input:checked[type=checkbox]::before {
+  left: 40px;
+  transition: all 0.3s;
+}
+body input:checked[type=checkbox]::after {
+  background-image: linear-gradient(rgb(99, 204, 255), rgb(99, 204, 255));
+  box-shadow: 0 0 5px rgb(18, 179, 255), 0 0 15px rgb(18, 179, 255);
+  left: 100px;
+}
+
+/*# sourceMappingURL=style.css.map */
